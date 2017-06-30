@@ -9,7 +9,7 @@ import {
   FETCH_MESSAGE
 } from './types';
 
-const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = 'http://localhost:3091';
 
 export const getEntries = payload => {
   return {
@@ -73,7 +73,7 @@ export const signinUser = ({email, password}) => {
       localStorage.setItem('token', response.data.token);
     })
     .catch(() => {
-      dispatch(authError('Bad Login Info'));
+      dispatch(authError('Your account or password is incorrect.\n Please try again.'));
     });
   };
 };

@@ -4,12 +4,13 @@ import {connect} from 'react-redux';
 
 class Header extends Component {
   render () {
-    const {authenticated} = this.props;
+    // const {authenticated} = this.props;
     return (
       <div className='header'>
         <nav>
-          <NavLink key='0' exact to='/' activeClassName='active'>home</NavLink>
-          <NavLink key='1' exact to='/signout' >sign out</NavLink>
+          <NavLink key='0' exact to='/' activeClassName='active'>Journal</NavLink>
+          <br />
+          <NavLink key='1' exact to='/signout' >Sign out</NavLink>
         </nav>
       </div>
     );

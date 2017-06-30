@@ -38,7 +38,7 @@ server
       );
       // Grab the initial state from our Redux store
       const finalState = store.getState();
-      res.send(`<!doctype html>
+      const htmlContent = `<!doctype html>
     <html lang="">
     <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -54,7 +54,9 @@ server
           window.__PRELOADED_STATE__ = ${serialize(finalState)}
         </script>
     </body>
-</html>`);
+</html>`;
+      // console.log('serverHTMLContent: ', htmlContent);
+      res.send(htmlContent);
     });
   });
 

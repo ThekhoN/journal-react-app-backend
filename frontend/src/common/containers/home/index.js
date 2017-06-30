@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import JournalEntries from '../journal-entries';
 import Header from '../header';
 import UnAuthLandingComponent from '../../components/unauth-landing-component';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 class Home extends Component {
   constructor (props) {
@@ -11,13 +13,7 @@ class Home extends Component {
   renderHomeComponent () {
     const {authenticated} = this.props;
     if (authenticated) {
-      return (
-        <div>
-          <h2>Test Application</h2><br />
-          <Header />
-          <JournalEntries />
-        </div>
-      );
+      return (<Redirect to='/journal' />);
     } else {
       return (
         <UnAuthLandingComponent />
@@ -33,4 +29,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated
+});
+export default connect(mapStateToProps, null)(Home);
+// export default Home;
