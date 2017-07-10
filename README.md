@@ -2,5 +2,5 @@
 WIP simple journal app - react, redux, express, mongodb
 
 ### Features
-* server-side-rendering
+* auth using JWT
 * crud
