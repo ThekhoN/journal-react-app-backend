@@ -19,7 +19,8 @@ const requireSignin = passport.authenticate('local', {session: false});
 module.exports = function router (app) {
   // READ-ONLY
   app.get('/', entry.getAllEntries);
-  app.get('/entry/:_id', entry.getEntryById);
+  app.get('/entry/id/:_id', entry.getEntryById);
+  app.get('/user/:_author', entry.getEntryByAuthor);
   // CRUD
   app.post('/entry', requireAuth, entry.addEntry);
   app.put('/entry/:_id', requireAuth, entry.updateEntryById);

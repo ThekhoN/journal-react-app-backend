@@ -31,6 +31,17 @@ const entry = {
       }
     });
   },
+  getEntryByAuthor: (req, res, next) => {
+    const author = req.params._author;
+    console.log('author: ', author);
+    Entry.find({author: author}, (err, entry) => {
+      if (err) {
+        return next(err);
+      } else {
+        res.send(entry);
+      }
+    });
+  },
   // post
   addEntry: (req, res, next) => {
     const text = req.body.text;
