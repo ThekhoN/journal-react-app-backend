@@ -1,6 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+// import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux';
 import rootReducer from '../reducers';
+
+// import createHistory from 'history/createBrowserHistory';
+// const history = createHistory();
+// const middleware = routerMiddleware(history);
 
 const composeEnhancers =
 typeof window === 'object' &&

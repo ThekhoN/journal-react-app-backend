@@ -24,6 +24,9 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
       if (err) {
         console.log('error in comparePassword');
         return done(err, false);
+      }
+      if (!isMatch) {
+        return done(null, false);
       } else {
         // if  user email found in and password auth'd
         // then return user ~ to be used in auth.signin controller
